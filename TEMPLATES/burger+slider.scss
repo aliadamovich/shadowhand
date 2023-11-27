@@ -1,0 +1,175 @@
+
+//!БУРГЕР=========================================================================================
+
+@media (max-width:767px) {
+	.menu__body {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: -100%;
+		overflow: auto;
+		background-color: #4d4959;
+		padding: 150px 0px 20px 0px;
+		transition: top 0.3s ease 0s;
+
+		&._active {
+			top: 0;
+		}
+
+		//*плашка для того чтобы пункты меню не наезжали на логотип при скролле
+		&:before{
+			content: '';
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: 0;
+			height: 110px;
+		background-color: #4d4959;
+			z-index: 2;
+		}
+		//*=======================
+	
+}
+	.menu__link {
+		color: white;
+		font-size: 20px;
+	}
+
+	.menu__list {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.menu__item {
+		padding: 0px 0 45px 0;
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			padding: 0px 0 45px 0;
+		}
+
+		&:last-child {
+			padding: 0px 0px 0px 0px;
+		}
+	}
+
+	.menu__icon {
+		z-index: 5;
+		display: block;
+		position: absolute;
+		top: 33px;
+		right: 20px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+
+		//*делаем полосочки бургера
+	span {
+		left: 0;
+		top: 8px;
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		transition: all 0.3s ease 0s;
+		background-color: #4D465B;
+		&:first-child {
+			top: 0px;
+		}
+		&:last-child {
+			top: auto;
+			bottom: 0px;
+		}
+	}
+
+		//*анимируем бургер при нажатии
+	&._active {
+		span {
+			transform: scale(0) translate(0px, -50%);
+			&:first-child {
+				top: 50%;
+				transform: rotate(-45deg) translate(0px, -50%);
+			}
+			&:last-child {
+				bottom: 50%;
+				transform: rotate(45deg) translate(0px, 50%);
+			}
+		}
+	}
+}
+
+};
+//!=============================================================================================
+
+
+//!СЛАЙДЕР=========================================================================================
+
+//стили стрелочек
+.swiper-button-prev,
+.swiper-button-next {
+	&:after {
+		color: grey;
+		font-size: 15px;
+		padding: 5px 10px;
+		border: 1px solid grey;
+	}
+}
+
+//стили буллетов
+.swiper-pagination-bullet {
+	width: 12px;
+	height: 12px;
+	background-color: transparent;
+	border: 1px solid #b5b5b5;
+
+	&-active {
+		background-color: #a9afb3;
+	}
+}
+
+//стили цифр внутри буллетов
+.swiper-pagination {
+	span {
+		color: black;
+		font-size: 10px;
+	}
+}
+
+//стили фракций
+.swiper-pagination-fraction {
+	font-size: 30px;
+	color: #067ce3;
+}
+
+.swiper-pagination {
+	span {
+		font-size: 30px;
+		color: #067ce3;
+	}
+}
+
+//стили прогресс-бара
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	background: #000;
+}
+
+.swiper-pagination-progressbar {
+	position: relative;
+}
+
+.swiper-pagination-progressbar-fill {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+//стили скролла
+.swiper-scrollbar-drag {
+	cursor: pointer;
+	background-color: rgb(68, 68, 23);
+}
+
+//!=============================================================================================
