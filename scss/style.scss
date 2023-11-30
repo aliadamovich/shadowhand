@@ -2,7 +2,7 @@
 
 //ШРИФТЫ===========================================
 //&display=swap&subset=cyrillic-ext
-@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Inter:300,regular,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Roboto:regular,500);
 //ШРИФТ ПО УМОЛЧАНИЮ===============================
 $fontfamily:"Inter";
@@ -50,17 +50,7 @@ html, body{
 			background: rgba(239, 57, 89, 0.40);
 			filter: blur(250px);
 		}
-		&::after{
-		content: '';
-			position: absolute;
-			width: 27.7%;
-			padding-top: 27.7%;
-			left: 0;
-			border-radius: 50%;
-			background: rgba(74, 134, 255, 0.30);
-			filter: blur(250px);
-			transform: translate(-45%, 26.37%);
-		}
+		
 }
 
 //для бугрера
@@ -83,26 +73,45 @@ html, body{
 .bgr {
 	height: 100%;
 	// overflow: hidden;
-	position: relative;
+	// position: relative;
 		//blue circle
 			&::before {
-				z-index: -10;
 				content: '';
+				z-index: -10;
 				position: absolute;
 				left: 0;
+				// left: -7.91%;
+				// top: 3.86%;
+				top: 181px;
 				border-radius: 770px;
 				background: rgba(74, 134, 255, 0.30);
 				filter: blur(250px);
 				width: 53.47%;
 				padding-top: 42.84%;
-				transform: translate(-7.91%, 23%);
+				// transform: translate(-7.91%, 23%);
 			}
+		// &::after {
+		// 	content: '';
+		// 	position: absolute;
+		// 	width: 27.7%;
+		// 	padding-top: 27.7%;
+		// 	// top: 53.7%;
+		// 	// left: 0;
+		// 	border-radius: 50%;
+		// 	background: rgba(74, 134, 255, 0.3);
+		// 	filter: blur(250px);
+		// 	// transform: translate(-45%, 26.37%);
+		// 	transform: translate(0%, 50%);
+		// }
 }
 
 .main {
 	&__cover {}
 	&__apps {}
 	&__privacy {}
+	&__try {}
+	&__reviews {}
+	&__running {}
 }
 //!============================================================================//
 .header {
@@ -393,17 +402,17 @@ html, body{
 }
 
 //!===APPS=========================================================================//
-@keyframes gradientBorder {
-	0%{
-		background-position: 5% 5%;
-	}
-	50% {
-		background-position: 95% 95%;
-	}
-	100%{
-		background-position: 5% 5%;
-	}
-}
+// @keyframes gradientBorder {
+// 	0%{
+// 		background-position: 5% 5%;
+// 	}
+// 	50% {
+// 		background-position: 95% 95%;
+// 	}
+// 	100%{
+// 		background-position: 5% 5%;
+// 	}
+// }
 // @keyframes animate {
 // 	0% {
 // 		transform: rotate(0deg);
@@ -538,7 +547,6 @@ html, body{
 	&__bubbles {}
 }
 
-.container {}
 
 .info-privacy {
 	max-width: 544px;
@@ -603,50 +611,179 @@ html, body{
 	}
 }
 //!===TRY=========================================================================//
-.main {
-
-	&__try {}
-}
 
 .try {
-
+	padding: 128px 0 130px 0;
 	&__content {}
 }
 
-.container {}
 
 .content-try {
+	display: flex;
+	align-items: start;
+	gap: 208px;
 
-	&__info {}
+	&__info {
+		max-width: 464px;
+	}
 
-	&__title {}
+	&__title {
+		margin-bottom: 32px;
+	}
 
 	&__text {}
 
 	&__subscribe {}
 }
 
-.block {
-
-	&__info {}
-
-	&__title {}
-
-	&__text {}
-
-	&__button {}
-}
 
 .subscribe {
+	>*:not(:last-child) {
+		margin-bottom: 40px;
+	}
 
-	&__label {}
+	&__label {
+		font-size: 30px;
+		color: #4A86FF;
+		font-weight: 300;
+	}
 
-	&__input {}
+	&__input {
+		color: #4A86FF;
+		font-size: 28px;
+		font-weight: 300;
+		width: 352px;
+		height: 36px;
+		outline: none;
+		border: none;
+		background: transparent;
+		box-shadow: none;
+		border-bottom: 1px solid #A4C2FF;
+		&::placeholder{
+			font-weight: 300;
+			font-size: 30px;
+			color: #A4C2FF;
+
+		}
+	}
 
 	&__button {}
 }
-//!============================================================================//
-//!============================================================================//
+//!===REVIEWS=========================================================================//
+
+.reviews {
+padding: 128px 0 128px 0;
+
+
+	&__content {
+		display: flex;
+		align-items: stretch;
+		gap: 128px;
+	}
+
+	&__info {
+		max-width: 430px;
+
+	}
+
+	&__title {
+		margin-bottom: 56px;
+	}
+
+	&__text {
+		margin-bottom: 48px;
+	}
+
+	&__slider {}
+}
+
+
+.slider-reviews {
+	display: flex;
+	align-items: stretch;
+	&__buttons {
+		padding-left: 15px;
+	}
+
+	&__prev, 
+	&__next {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		border: 1px solid #FFF;
+		box-shadow: 2px 3px 15px #A4C2FF;
+	}
+	&__prev{
+		background: rgba(255, 255, 255, 0.40) url(/img/icons/arrow-left.svg) center no-repeat;
+		margin-right: 32px;
+	}
+	&__next {
+		background: rgba(255, 255, 255, 0.40) url(/img/icons/arrow-right.svg) 17px center no-repeat;
+	}
+
+	&__line {
+		display: flex;
+		align-items: stretch;
+	}
+
+	&__slide {}
+}
+
+.slide-review {
+	display: flex;
+	&__item {
+		flex: 0 1 50%;
+		padding: 88px 16px 0;
+		border-left: 1px solid #4A86FF;
+		color: #4A86FF;
+		font-size: 24px;
+		font-weight: 300;
+	}
+}
+//!==RUNNING==========================================================================//
+
+
+
+.running {
+	overflow: hidden;
+	max-width: 100%;
+	margin: 0px auto;
+	padding-bottom: 128px;
+	position: relative;
+	&__black{
+			display: flex;
+			width: 200%;
+			// animation: runningStroke 10s linear infinite;
+		margin-bottom: 16px;
+		p{
+			width: 100%;
+			white-space: nowrap;
+		}
+	}
+
+	&__red {
+		display: flex;
+		width: 200%;
+		// animation: runningStroke 10s linear infinite -1s;
+		p{
+		color: #EF3959;
+		width: 100%;
+		white-space: nowrap;
+		}
+	}
+}
+@keyframes runningStroke {
+	0% {
+		transform: translateX(0%);
+	}
+	// 50% {
+	// 	transform: translateX(0%);
+	// }
+	100%{
+		transform: translateX(-53%);
+	}
+}
+
 //!============================================================================//
 //!============================================================================//
 //!============================================================================//
