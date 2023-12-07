@@ -31,8 +31,39 @@
 // 	}
 // }
 
-// function resetParallax() {
-// 	parallaxItems.forEach((item) => {
-// 		item.style.transform = 'translateX(0) translateY(0)'
-// 	})
-// }
+function resetParallax() {
+	parallaxItems.forEach((item) => {
+		item.style.transform = 'translateX(0) translateY(0)'
+	})
+}
+
+//!accordeon
+
+const faq = document.querySelectorAll('.accordeon');
+
+faq.forEach((item) => {
+	item.addEventListener('click', function() {
+		item.classList.toggle('active')
+	})
+})
+const mainElement = document.documentElement;
+console.log(mainElement.clientWidth);
+console.log(window.innerWidth);
+
+
+//!sticky__header
+
+const headerScrolled = 'header_scrolled';
+const header = document.querySelector('.header');
+
+
+window.addEventListener('scroll', () => {
+	console.log(window.scrollY);
+	if (window.scrollY >= 40 && !header.classList.contains(headerScrolled)) {
+		header.classList.add(headerScrolled)
+
+	}
+	else if (window.scrollY < 40 && header.classList.contains(headerScrolled)) {
+		header.classList.remove(headerScrolled);
+	}
+})
