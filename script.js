@@ -54,6 +54,53 @@ spaceCover.addEventListener('click', () => {
 
 //*СЛАЙДЕР ===============
 
+
+const sliderBlock = document.querySelector('.slider-reviews');
+const sliderLine = document.querySelector('.slider-reviews__line');
+const slide = document.querySelectorAll('.slide-review');
+const buttonNext = document.querySelector('.slider-reviews__next');
+const buttonPrev = document.querySelector('.slider-reviews__prev');
+let currentSlide = 0;
+const sliderWidth = sliderBlock.offsetWidth;
+const lineWidth = sliderWidth * slide.length;
+console.log(lineWidth);
+console.log(slide.length);
+
+
+// slide.forEach((item) =>{
+// 	item
+// })
+
+
+buttonNext.addEventListener('click', nextSlideActivation);
+buttonPrev.addEventListener('click', prevSlideActivation);
+
+function nextSlideActivation() {
+	currentSlide++;
+	if (currentSlide >= slide.length) {
+		currentSlide = 0;
+	}
+	moveSlide()
+}
+
+function prevSlideActivation() {
+	currentSlide--;
+	if (currentSlide < 0) {
+		currentSlide = slide.length - 1;
+	}
+	moveSlide()
+	console.log(currentSlide);
+
+}
+
+
+function moveSlide() {
+	console.log(currentSlide);
+	
+	sliderLine.style.transform = `translateX(-${sliderWidth * currentSlide}px)`;
+}
+
+
 //*=PARALLAX===========================
 document.addEventListener('mousemove', parallax);
 document.addEventListener('mouseout', resetParallax);
@@ -71,7 +118,6 @@ function parallax(e) {
 		})
 	}
 }
-console.log(window.innerWidth);
 
 function resetParallax() {
 	parallaxItems.forEach((item) => {
@@ -89,8 +135,6 @@ faq.forEach((item) => {
 	})
 })
 const mainElement = document.documentElement;
-console.log(mainElement.clientWidth);
-console.log(window.innerWidth);
 
 
 //!sticky__header
@@ -103,7 +147,6 @@ window.addEventListener('scroll', () => {
 
 	if (window.scrollY >= 40 && !header.classList.contains(headerScrolled)) {
 		header.classList.add(headerScrolled)
-
 	}
 	else if (window.scrollY < 40 && header.classList.contains(headerScrolled)) {
 		header.classList.remove(headerScrolled);
