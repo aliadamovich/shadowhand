@@ -61,44 +61,50 @@ const slide = document.querySelectorAll('.slide-review');
 const buttonNext = document.querySelector('.slider-reviews__next');
 const buttonPrev = document.querySelector('.slider-reviews__prev');
 let currentSlide = 0;
-const sliderWidth = sliderBlock.offsetWidth;
-const lineWidth = sliderWidth * slide.length;
-console.log(lineWidth);
-console.log(slide.length);
+let sliderWidth = null; 
 
 
-// slide.forEach((item) =>{
-// 	item
-// })
+function init() {
+	sliderWidth = sliderBlock.offsetWidth;
+	sliderLine.style.width = sliderWidth * slide.length + 'px';
+	slide.forEach((item) => {
+		item.style.width = (sliderWidth / 2) + 'px';
+		item.style.height = 'auto';
+	})
+	moveSlide();
+}
 
-
+init();
 buttonNext.addEventListener('click', nextSlideActivation);
 buttonPrev.addEventListener('click', prevSlideActivation);
 
+window.addEventListener('resize', init);
+
 function nextSlideActivation() {
 	currentSlide++;
-	if (currentSlide >= slide.length) {
+	// sliderLine.style.transition = 'transform 0.8s ease-in-out';
+	if (currentSlide >= slide.length / 2) {
 		currentSlide = 0;
+		// sliderLine.style.transition = 'none';
 	}
 	moveSlide()
 }
 
 function prevSlideActivation() {
 	currentSlide--;
+	// sliderLine.style.transition = 'transform 0.8s ease-in-out';
 	if (currentSlide < 0) {
-		currentSlide = slide.length - 1;
+		currentSlide = (slide.length / 2 - 1);
+		// sliderLine.style.transition = 'none';
 	}
 	moveSlide()
-	console.log(currentSlide);
-
 }
-
 
 function moveSlide() {
-	console.log(currentSlide);
-	
 	sliderLine.style.transform = `translateX(-${sliderWidth * currentSlide}px)`;
 }
+
+
 
 
 //*=PARALLAX===========================
@@ -152,3 +158,65 @@ window.addEventListener('scroll', () => {
 		header.classList.remove(headerScrolled);
 	}
 })
+
+//!popup window
+
+const popupLinks = document.querySelectorAll('.popup-link');
+const body = document.querySelector('body');
+const lockPadding = document.querySelectorAll('.lock-padding');
+
+let unlock = true;
+const timeout = 800;
+
+//перебираем каждую ссылку с классом popup-link, навешиваю событие клик
+//у каждой ссылки получаю атрибут href и убираю #
+//получаю в константу элемент с таким же айдишником, как атрибут
+//у нашей ссылки и вешаю на него ф-цию открыть попап
+if (popupLinks.length > 0) {
+	popupLinks.forEach(item => {
+		item.addEventListener('click', function(e) {
+			const popupName = item.getAttribute('href').replace('#', '');
+			const currentPopup = document.getElementById(popupName);
+			popupOpen(currentPopup);
+			e.preventDefault();
+		})
+	})
+}
+//ф-ция для закрытия попапа для крестика или кнопки внутри попапа
+//перебираем, вешаем событие клик и при клике вешаем функцию
+//на ближайшего родителя с классом popup (closest - поиск ближ родителя с указанным в скобках классом)
+const popupCloseIcon = document.querySelectorAll('.close-popup');
+if(popupCloseIcon.length > 0) {
+	popupCloseIcon.forEach(elem => {
+		elem.addEventListener('click', function(e) {
+			popupClose(elem.closest('.popup'))
+			e.preventDefault();
+		})
+	})
+}
+
+//ф-ия открытия попапа
+function popupOpen(currentPopup) {
+	//этот код закрывает открытый попап, в ситуации когда у нас ссылка на второй попап 
+	//внутри попапа
+	if (currentPopup) {
+		const popupActive = document.querySelector('.popup.open');
+		popupClose(popupActive);
+	}
+	//добавляем класс open
+	currentPopup.classList.add('open');
+	//на весь попап вешаем событие клик, в условиях у которого - если мы
+	//нажали у попапа куда-то, КРОМЕ popup__content (а это область вокруг контента). то закрой попап 
+	//это нужно чтобы закрывать попап по клике на область вокруг
+	currentPopup.addEventListener('click', function(e) {
+		if(!e.target.closest('.popup__content')) {
+			popupClose(e.target.closest('.popup'))
+		}
+	})
+}
+
+function popupClose(popupActive) {
+	if(popupActive) {
+		popupActive.classList.remove('open');
+	}
+}

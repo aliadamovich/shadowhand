@@ -1351,7 +1351,7 @@ body._lock .space__cover {
   margin-bottom: 70px;
 }
 .reviews__text {
-  margin-bottom: 38px;
+  margin-bottom: 52px;
 }
 .slider-reviews {
   overflow: hidden;
@@ -1382,39 +1382,23 @@ body._lock .space__cover {
   background: rgba(255, 255, 255, 0.4) url(/img/icons/arrow-right.svg) 17px center no-repeat;
 }
 .slider-reviews__line {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  padding-left: 1px;
 }
 .slide-review {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-}
-.slide-review__item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
   padding: 88px 16px 0;
   border-left: 1px solid #4A86FF;
   color: #4A86FF;
   font-size: 24px;
   font-weight: 300;
-}
-@media (max-width: 1182px) {
-  .slide-review__item {
-    padding: 40px 16px 0;
-  }
-}
-@media (max-width: 1182px) {
-  .slide-review__item {
-    font-size: 20px;
-  }
 }
 
 .running {
@@ -1643,6 +1627,51 @@ body._lock .space__cover {
           animation: animsvg 10s linear infinite 0s;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+.popup {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(255, 255, 255, 0.8941176471);
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+.popup__body {
+  position: relative;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.popup__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 35px;
+  color: #0D224E;
+  font-weight: 300;
+}
+.popup__content {
+  padding: 40px;
+  width: 100%;
+}
+.popup__content iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .faq {

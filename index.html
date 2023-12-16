@@ -29,7 +29,7 @@
 						</div>
 						<div class="menu__body">
 							<ul class="menu__list">
-								<li class="menu__item"><a href="" class="menu__link">About</a></li>
+								<li class="menu__item"><a href="#popup" class="menu__link popup-link">About</a></li>
 								<li class="menu__item"><a href="" class="menu__link">Features</a></li>
 								<li class="menu__item"><a href="" class="menu__link">Pricing</a></li>
 								<li class="menu__item"><a href="" class="menu__link">FAQs</a></li>
@@ -166,7 +166,7 @@
 							</div>
 							<div class="reviews__slider slider-reviews">
 								<div class="slider-reviews__line">
-									<div class="slider-reviews__slide slide-review">
+									<!-- <div class="slider-reviews__slide slide-review">
 										<div class="slide-review__item">ПЕРВЫЙ СЛАЙД ShadowHand proves its worth with a large collection of privacy tools, an excellent app, and unlimited device
 										connections”</div>
 										<div class="slide-review__item">“I’m a long time user for this VPN service, started in 2016 and it’s been working wonders”</div>
@@ -175,8 +175,7 @@
 										<div class="slide-review__item">ВТОРОЙ СЛАЙД ShadowHand proves its worth with a large collection of privacy tools, an excellent
 											app, and unlimited device
 											connections”ShadowHand proves its worth with a large collection of privacy tools, an excellent
-											app, and unlimited device
-											connections</div>
+											app, and unlimited device connections</div>
 										<div class="slide-review__item">“I’m a long time user for this VPN service, started in 2016 and it’s been working
 											wonders”</div>
 									</div>
@@ -186,6 +185,37 @@
 											connections”</div>
 										<div class="slide-review__item">“I’m a long time user for this VPN service, started in 2016 and it’s been working
 											wonders”</div>
+									</div> -->
+
+									<div class="slider-reviews__slide slide-review">
+										ПЕРВЫЙ СЛАЙД ShadowHand proves its worth with a large collection of privacy tools, an
+											excellent
+											app, and unlimited device
+											connections”
+									</div>
+									<div class="slider-reviews__slide slide-review">
+										ВТОРОЙ “I’m a long time user for this VPN service, started in 2016 and it’s been working
+											wonders”
+									</div>
+									<div class="slider-reviews__slide slide-review">
+										“ТРЕТИЙ СЛАЙД ShadowHand proves its worth with a large collection of privacy tools, an
+										excellent
+										app, and unlimited device
+										connections”
+									</div>
+									<div class="slider-reviews__slide slide-review">
+										ЧЕТВЕРТЫЙ “I’m a long time user for this VPN service, started in 2016 and it’s been working
+										wonders”
+									</div>
+									<div class="slider-reviews__slide slide-review">
+										ПЯТЫЙ СЛАЙД ShadowHand proves its worth with a large collection of privacy tools, an
+										excellent
+										app, and unlimited device
+										connections”
+									</div>
+									<div class="slider-reviews__slide slide-review">
+										ШЕСТОЙ “I’m a long time user for this VPN service, started in 2016 and it’s been working
+										wonders”
 									</div>
 								</div>
 							</div>
@@ -254,7 +284,7 @@
 				</section>
 				<div class="main__video video">
 					<div class="video__content">
-						<a href="" class="video__button">
+						<a href="#popup" class="video__button popup-link">
 							<svg width="194" height="194" viewBox="0 0 194 194" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M177.169 101.75L176.921 102.999L184.442 106.784L184.426 106.862L176.03 107.485L175.782 108.733L185.226 113.448L185.47 112.219L177.751 108.516L177.771 108.419L186.327 107.909L186.598 106.543L178.887 102.801L178.906 102.704L187.454 102.233L187.699 101.004L177.169 101.75Z"
@@ -407,7 +437,7 @@
 									</div>
 									<div class="accordeon__answer">
 										<p>
-											The VPN acts as an intermediary between the user getting online and connecting to the internet by hiding their IP
+											<a href="#popup" class="popup-link">The VPN acts </a>as an intermediary between the user getting online and connecting to the internet by hiding their IP
 										address. Using a VPN creates a private, encrypted tunnel through which a user's device can access the internet while
 										hiding their personal information, location, and other data.
 										</p>
@@ -542,6 +572,31 @@
 				</div>
 			</div>
 		</footer>
+		<div id="popup" class="popup">
+			<div class="popup__body">
+				<a class="popup__close close-popup" href="#">X</a>
+				<div class="popup__content">
+					<div class="">
+						<a class="popup-link" href="#popup2">Еще один попап</a>
+					</div>
+					<iframe src="https://www.youtube.com/embed/4TTLqr5o_-A?si=_gZxPQjs_NwnGMKH"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<div id="popup2" class="popup">
+			<div class="popup__body">
+				<a class="popup__close close-popup" href="#">X</a>
+				<div class="popup__content">
+					<div class="">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci eos a dolorem, consequuntur nostrum, aperiam id fugit enim beatae tempora illo quasi nulla odit temporibus. Distinctio vel veniam consequuntur.
+					</div>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 	<script src="script.js"></script>
 </body>
