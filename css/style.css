@@ -1656,6 +1656,7 @@ body._lock .space__cover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 40px;
 }
 .popup__close {
   position: absolute;
@@ -1666,7 +1667,6 @@ body._lock .space__cover {
   font-weight: 300;
 }
 .popup__content {
-  padding: 40px;
   width: 100%;
 }
 .popup__content iframe {
@@ -1730,6 +1730,7 @@ body._lock .space__cover {
   margin-bottom: 24px;
 }
 .accordeon__question {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1755,11 +1756,10 @@ body._lock .space__cover {
   }
 }
 .accordeon__answer {
-  max-height: 0;
   overflow: hidden;
-  -webkit-transition: max-height 0.3s ease;
-  transition: max-height 0.3s ease;
   line-height: 1.6;
+  -webkit-transition: height 0.8s ease 0s;
+  transition: height 0.8s ease 0s;
 }
 .accordeon__answer p {
   padding: 1rem 0;
@@ -1774,10 +1774,9 @@ body._lock .space__cover {
 }
 
 .accordeon.active .accordeon__answer {
-  max-height: 300px;
-  overflow: auto;
-  -webkit-transition: max-height 0.8s ease;
-  transition: max-height 0.8s ease;
+  height: auto;
+  -webkit-transition: height 0.8s ease;
+  transition: height 0.8s ease;
 }
 
 .bubbles-info {

@@ -1515,6 +1515,7 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 40px;
 	}
 
 	&__close {
@@ -1527,7 +1528,7 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 	}
 
 	&__content {
-		padding: 40px;
+		
 		width: 100%;
 		// height: 100%;
 		iframe{
@@ -1603,6 +1604,7 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 	margin-bottom: 24px;
 
 	&__question {
+		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -1620,11 +1622,12 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 	}
 
 	&__answer {
-		max-height: 0;
+		// height: 0;
+		// display: none;
 		overflow: hidden;
-		transition: max-height 0.3s ease;
 		line-height: 1.6;
-
+		transition: height 0.8s ease 0s;
+		// transform: translateY(-100%);
 		p {
 			padding: 1rem 0;
 		}
@@ -1642,9 +1645,13 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 }
 
 .accordeon.active .accordeon__answer {
-	max-height: 300px;
-	overflow: auto;
-	transition: max-height 0.8s ease;
+	// max-height: 300px;
+	// overflow: auto;
+	// display: block;
+	height: auto;
+	transition: height 0.8s ease;
+	// transform: translateY(0%);
+	// opacity: 1;
 }
 
 

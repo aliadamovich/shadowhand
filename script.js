@@ -134,10 +134,17 @@ function resetParallax() {
 //!accordeon
 
 const faq = document.querySelectorAll('.accordeon');
-
+const answers = document.querySelectorAll('.accordeon__answer');
+// answers.forEach(answer => {
+// 	answer.style.maxHeight = '0px';
+// })
 faq.forEach((item) => {
 	item.addEventListener('click', function() {
-		item.classList.toggle('active')
+		// item.classList.toggle('active')
+		const answerFaq = item.querySelector('.accordeon__answer');
+		
+		console.log(answerFaq.clientHeight);
+		
 	})
 })
 const mainElement = document.documentElement;
@@ -163,10 +170,7 @@ window.addEventListener('scroll', () => {
 
 const popupLinks = document.querySelectorAll('.popup-link');
 const body = document.querySelector('body');
-const lockPadding = document.querySelectorAll('.lock-padding');
 
-let unlock = true;
-const timeout = 800;
 
 //перебираем каждую ссылку с классом popup-link, навешиваю событие клик
 //у каждой ссылки получаю атрибут href и убираю #
@@ -201,8 +205,11 @@ function popupOpen(currentPopup) {
 	//внутри попапа
 	if (currentPopup) {
 		const popupActive = document.querySelector('.popup.open');
-		popupClose(popupActive);
+		if(popupActive) {
+			popupClose(popupActive);
+		}
 	}
+	body.classList.add('_lock');
 	//добавляем класс open
 	currentPopup.classList.add('open');
 	//на весь попап вешаем событие клик, в условиях у которого - если мы
@@ -215,8 +222,31 @@ function popupOpen(currentPopup) {
 	})
 }
 
+//ф-ция закрытия попапа
 function popupClose(popupActive) {
 	if(popupActive) {
 		popupActive.classList.remove('open');
+		body.classList.remove('_lock');
+		stopVideo();
 	}
 }
+
+//ф-ция отановки видео для модального окна
+function stopVideo() {
+	const videos = document.querySelectorAll('iframe');
+	videos.forEach((video) => {
+		const src = video.src;
+		video.src = src;
+	})
+}
+//выход из модального окна по escape (не работает если видео начало вопсроизводиться)
+document.addEventListener('keyup', function(e) {
+	if (e.code === 'Escape') {
+		const popupActive = document.querySelector('.popup.open');
+		stopVideo();
+		popupClose(popupActive);
+	}
+})
+
+
+
