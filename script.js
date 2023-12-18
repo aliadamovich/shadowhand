@@ -133,21 +133,31 @@ function resetParallax() {
 
 //!accordeon
 
-const faq = document.querySelectorAll('.accordeon');
-const answers = document.querySelectorAll('.accordeon__answer');
-// answers.forEach(answer => {
-// 	answer.style.maxHeight = '0px';
-// })
-faq.forEach((item) => {
-	item.addEventListener('click', function() {
-		// item.classList.toggle('active')
-		const answerFaq = item.querySelector('.accordeon__answer');
-		
-		console.log(answerFaq.clientHeight);
-		
-	})
+const accordeonContainer = document.querySelector('.info-faq');
+
+accordeonContainer.addEventListener('click', function(e) {
+	const box = e.target.closest('.accordeon');
+	if (box) {
+		boxHandler(box);
+	}
 })
-const mainElement = document.documentElement;
+
+
+function boxHandler(box) {
+	const currentQuestion = box.querySelector('.accordeon__question');
+	const currentContent = currentQuestion.nextElementSibling;
+
+	if (currentQuestion) {
+		box.classList.toggle('active');
+
+		if (box.classList.contains('active')) {
+			currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+		} else {
+			currentContent.style.maxHeight = 0;
+		}
+	};
+}
+
 
 
 //!sticky__header
@@ -156,15 +166,41 @@ const headerScrolled = 'header_scrolled';
 const header = document.querySelector('.header');
 
 
-window.addEventListener('scroll', () => {
+// window.addEventListener('scroll', () => {
 
-	if (window.scrollY >= 40 && !header.classList.contains(headerScrolled)) {
-		header.classList.add(headerScrolled)
+// 	if (window.scrollY >= 80 && !header.classList.contains(headerScrolled)) {
+// 		header.classList.add(headerScrolled)
+// 	}
+// 	else if (window.scrollY < 80 && header.classList.contains(headerScrolled)) {
+// 		header.classList.remove(headerScrolled);
+// 	}
+// 	console.log(scrollY);
+	
+// })
+
+document.addEventListener('DOMContentLoaded', function () {
+	var lastScrollPosition = window.scrollY;
+
+	function handleScroll() {
+		var scrollPosition = window.scrollY;
+
+		if (scrollPosition > lastScrollPosition) {
+			// Прокрутка вниз: скрыть шапку
+			// header.classList.add('header-hidden');
+			header.classList.add('header-visible');
+		// } else {
+		// 	// Прокрутка вверх: показать шапку
+		// 	header.classList.add('header-visible');
+		// 	header.classList.remove('header-hidden');
+		// }
+
+		lastScrollPosition = scrollPosition;
 	}
-	else if (window.scrollY < 40 && header.classList.contains(headerScrolled)) {
-		header.classList.remove(headerScrolled);
 	}
-})
+	window.addEventListener('scroll', handleScroll);
+});
+
+
 
 //!popup window
 

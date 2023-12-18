@@ -252,17 +252,19 @@ body._lock {
 	opacity: 0;
 }
 
+.header-visible {
+	transform: translateY(0%);
+}
+
 .header {
-	position: fixed;
+	position: absolute;
 	z-index: 100;
 	top: 0;
 	width: 100%;
 	display: block;
 	transition: all 0.3s ease 0s;
-	&_scrolled{
-		background: #FAD8E2;
-		// backdrop-filter: blur(15px);
-	}
+	transform: translateY(-100%);
+	
 	&__container{
 		display: flex;
 		justify-content: space-between;
@@ -302,7 +304,26 @@ body._lock {
 
 	&__menu {}
 }
+// .header_scrolled {
+// 	position: fixed;
+// 	top: 0;
+// 	background: #FAD8E2;
+// 	border-bottom: 1px solid #FFF;
 
+// 	// filter: drop-shadow(-10px -10px 20px rgba(200, 214, 243, 0.3));
+// 	&__container {
+// 		padding: 10px 20px 10px 13px;
+// 	}
+// }
+// .header_scrolled .header__logo {
+// 	h1{
+// 		font-size: 25px;
+// 	} 
+// 	img {
+// 		width: 70px;
+// 		height: 50px;
+// }
+// }
 
 .menu {
 
@@ -1600,11 +1621,10 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 
 .accordeon {
 	border-bottom: 1px solid #A4C2FF;
-	padding: 0px 20px 4px 0;
-	margin-bottom: 24px;
 
 	&__question {
 		cursor: pointer;
+		padding: 20px 20px 4px 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -1622,19 +1642,17 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 	}
 
 	&__answer {
-		// height: 0;
-		// display: none;
+		max-height: 0;
 		overflow: hidden;
 		line-height: 1.6;
-		transition: height 0.8s ease 0s;
-		// transform: translateY(-100%);
+		transition: all 0.3s ease-out 0s;
 		p {
 			padding: 1rem 0;
 		}
 	}
 
 	svg {
-		transition: all 0.5s ease-in 0s;
+		transition: all 0.5s ease-out 0s;
 	}
 
 	&.active {
@@ -1642,16 +1660,6 @@ background: url(..//img/Polygon\ 1.svg) no-repeat;
 			transform: rotate(180deg);
 		}
 	}
-}
-
-.accordeon.active .accordeon__answer {
-	// max-height: 300px;
-	// overflow: auto;
-	// display: block;
-	height: auto;
-	transition: height 0.8s ease;
-	// transform: translateY(0%);
-	// opacity: 1;
 }
 
 
