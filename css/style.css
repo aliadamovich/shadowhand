@@ -1881,13 +1881,18 @@ body._lock .space__cover {
   width: 100%;
   height: 100%;
 }
+@media (max-width: 1182px) {
+  .popup__body {
+    padding: 40px 20px;
+  }
+}
 @media (max-width: 768px) {
   .popup__body {
-    padding: 80px 10px;
+    padding: 40px 10px;
   }
 }
 .popup__content {
-  width: 100%;
+  height: 100%;
 }
 .popup__content iframe {
   width: 100%;
@@ -1897,7 +1902,7 @@ body._lock .space__cover {
 .popup__close {
   position: absolute;
   top: 25px;
-  right: 30px;
+  right: 50px;
   font-size: 35px;
   color: #BCACDF;
   font-weight: 300;
