@@ -1879,17 +1879,28 @@ body._lock .space__cover {
           align-items: center;
   padding: 100px 20px;
   width: 100%;
+  max-width: 1440px;
   height: 100%;
+}
+@media (max-width: 1182px) {
+  .popup__body {
+    padding: 40px 20px;
+  }
 }
 @media (max-width: 768px) {
   .popup__body {
-    padding: 80px 10px;
+    padding: 40px 10px;
   }
 }
 .popup__content {
   position: relative;
   width: 100%;
   padding-bottom: 50%;
+}
+@media (min-width: 1500px) {
+  .popup__content {
+    padding-bottom: 45%;
+  }
 }
 .popup__content iframe {
   top: 0;
