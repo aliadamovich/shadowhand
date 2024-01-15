@@ -49,7 +49,7 @@ function init() {
 	sliderLine.style.width = sliderWidth * slide.length + 'px';
 	slide.forEach((item) => {
 		item.style.height = 'auto';
-		if (window.innerWidth > 580 ) {
+		if (window.innerWidth > breakpoint ) {
 			item.style.width = (sliderWidth / 2) + 'px';
 			
 		} else {
