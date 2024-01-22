@@ -108,12 +108,37 @@ accordeonContainer.addEventListener('click', function(e) {
 })
 
 
+// function boxHandler(box) {
+// 	const currentQuestion = box.querySelector('.accordeon__question');
+// 	const currentContent = currentQuestion.nextElementSibling;
+
+// 	if (currentQuestion) {
+// 		box.classList.toggle('active');
+
+// 		if (box.classList.contains('active')) {
+// 			currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+// 		} else {
+// 			currentContent.style.maxHeight = 0;
+// 		}
+// 	};
+// }
+
 function boxHandler(box) {
 	const currentQuestion = box.querySelector('.accordeon__question');
 	const currentContent = currentQuestion.nextElementSibling;
+	const allBoxes = document.querySelectorAll('.accordeon');
 
 	if (currentQuestion) {
-		box.classList.toggle('active');
+		allBoxes.forEach((otherBox) => {
+			if(otherBox !== box && otherBox.classList.contains('active')) {
+				const otherQuestion = otherBox.querySelector('.accordeon__question');
+				const otherContent = otherQuestion.nextElementSibling;
+				otherBox.classList.remove('active');
+				otherContent.style.maxHeight = 0;
+			}
+		});
+		box.classList.add('active');
+
 
 		if (box.classList.contains('active')) {
 			currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
@@ -122,7 +147,6 @@ function boxHandler(box) {
 		}
 	};
 }
-
 
 
 //!sticky__header

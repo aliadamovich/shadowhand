@@ -78,6 +78,7 @@ body._lock {
 		filter: blur(250px);
 		width: 53.47%;
 		padding-top: 42.84%;
+		transform: translate3d(0, 0, 0);
 	}
 
 	//ellipse 3
@@ -92,6 +93,7 @@ body._lock {
 		border-radius: 100% 107.87%;
 		background: rgba(239, 57, 89, 0.40);
 		filter: blur(250px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -109,6 +111,7 @@ body._lock {
 		border-radius: 50%;
 		background: rgba(74, 134, 255, 0.3);
 		filter: blur(250px);
+		transform: translate3d(0, 0, 0);
 	}
 
 	//ellipse5
@@ -122,7 +125,8 @@ body._lock {
 		right: -25%;
 		border-radius: 50%;
 		background: rgba(74, 134, 255, 0.30);
-		filter: blur(200px);
+		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -140,6 +144,8 @@ body._lock {
 		border-radius: 50%;
 		background: rgba(239, 57, 89, 0.80);
 		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
+
 	}
 
 	//ellipse 7
@@ -154,6 +160,7 @@ body._lock {
 		border-radius: 100% 103.43%;
 		background: rgba(239, 57, 89, 0.80);
 		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -171,6 +178,7 @@ body._lock {
 		border-radius: 100% 105.34%;
 		background: #A4C2FF;
 		filter: blur(100px);
+		transform: translate3d(0, 0, 0);
 	}
 
 	//ellipse10
@@ -185,6 +193,7 @@ body._lock {
 		border-radius: 100% 109%;
 		background: rgba(74, 134, 255, 0.50);
 		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 .bgr5 {
@@ -215,6 +224,7 @@ body._lock {
 		border-radius: 100% 115.82%;
 		background: rgba(74, 134, 255, 0.50);
 		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -231,6 +241,7 @@ body._lock {
 		right: 0%;
 		background: #BCACDF;
 		filter: blur(150px);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -1237,7 +1248,9 @@ body._lock {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-
+		fill: none;
+		stroke: none;
+		background: rgba(255, 255, 255, 0.40);
 		&:hover{
 			box-shadow: 2px 3px 15px #A4C2FF;
 		}
@@ -1246,6 +1259,7 @@ body._lock {
 		padding-left: 5px;
 		// background: rgba(255, 255, 255, 0.40) url(/img/icons/arrow-left.svg) center no-repeat;
 		margin-right: 32px;
+
 	}
 	&__next {
 		padding-right: 5px;
