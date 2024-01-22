@@ -1901,29 +1901,30 @@ body._lock .space__cover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 100px 20px;
+  padding: 100px 60px;
   width: 100%;
   max-width: 1440px;
   height: 100%;
 }
 @media (max-width: 1182px) {
   .popup__body {
-    padding: 40px 20px;
+    padding: 40px 40px;
   }
 }
 @media (max-width: 768px) {
   .popup__body {
-    padding: 40px 10px;
+    padding: 40px 20px;
   }
 }
 .popup__content {
   position: relative;
   width: 100%;
-  padding-bottom: 50%;
+  max-height: 100%;
+  padding-bottom: 40%;
 }
 @media (min-width: 1500px) {
   .popup__content {
-    padding-bottom: 45%;
+    padding-bottom: 40%;
   }
 }
 .popup__content iframe {
@@ -1938,7 +1939,7 @@ body._lock .space__cover {
 .popup__close {
   position: absolute;
   top: 25px;
-  right: 50px;
+  right: 15px;
   font-size: 35px;
   color: #BCACDF;
   font-weight: 300;

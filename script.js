@@ -108,20 +108,6 @@ accordeonContainer.addEventListener('click', function(e) {
 })
 
 
-// function boxHandler(box) {
-// 	const currentQuestion = box.querySelector('.accordeon__question');
-// 	const currentContent = currentQuestion.nextElementSibling;
-
-// 	if (currentQuestion) {
-// 		box.classList.toggle('active');
-
-// 		if (box.classList.contains('active')) {
-// 			currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
-// 		} else {
-// 			currentContent.style.maxHeight = 0;
-// 		}
-// 	};
-// }
 
 function boxHandler(box) {
 	const currentQuestion = box.querySelector('.accordeon__question');
@@ -137,7 +123,7 @@ function boxHandler(box) {
 				otherContent.style.maxHeight = 0;
 			}
 		});
-		box.classList.add('active');
+		box.classList.toggle('active');
 
 
 		if (box.classList.contains('active')) {
